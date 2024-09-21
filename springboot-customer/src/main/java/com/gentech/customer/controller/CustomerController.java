@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gentech.customer.entity.Customer;
@@ -60,4 +61,24 @@ public class CustomerController {
 		return new ResponseEntity<String>("The Customer id "+id+" has deleted successfully", HttpStatusCode.valueOf(200));
 	}
 	
+	// http://localhost:9092/v1/api/customer/filterbyname?name=Adams
+	@GetMapping("/customer/filterbyname")
+	public ResponseEntity<List<Customer>> getAllCustomersByName(@RequestParam String name)
+	{
+		return new ResponseEntity<List<Customer>>(custService.getAllCustomersByCustomerName(name), HttpStatusCode.valueOf(200));
+	}
+	
+	// http://localhost:9092/v1/api/customer/filterbyloc?loc=Paris
+	@GetMapping("/customer/filterbyloc")
+	public ResponseEntity<List<Customer>> getAllCustomersByLocation(@RequestParam String loc)
+	{
+		return new ResponseEntity<List<Customer>>(custService.getAllCustomersByLocation(loc), HttpStatusCode.valueOf(200));
+	}
+	
+	// http://localhost:9092/v1/api/customer/filterbynameandloc?name=Adams&loc=London
+	@GetMapping("/customer/filterbynameandloc")
+	public ResponseEntity<List<Customer>> getAllCustomersByNameAndLocation(String name,String loc)
+	{
+		return new ResponseEntity<List<Customer>>(custService.getAllCustomersByNameAndLocation(name, loc), HttpStatus.OK);
+	}
 }

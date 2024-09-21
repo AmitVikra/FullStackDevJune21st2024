@@ -53,5 +53,21 @@ public class CustomerServiceImpl implements CustomerService{
 		
 	}
 
+	@Override
+	public List<Customer> getAllCustomersByCustomerName(String name) {
+		return custRepository.findByCustomerName(name);
+	}
+
+	@Override
+	public List<Customer> getAllCustomersByLocation(String name) {
+		return custRepository.findByLocation(name);
+	}
+
+	@Override
+	public List<Customer> getAllCustomersByNameAndLocation(String name, String loc) {
+		return custRepository.findByCustomerNameAndLocation(name, loc);
+	}
+
+	
 	
 }

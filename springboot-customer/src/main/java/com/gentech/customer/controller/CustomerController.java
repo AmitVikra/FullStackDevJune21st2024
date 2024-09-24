@@ -3,6 +3,8 @@ package com.gentech.customer.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -80,5 +82,29 @@ public class CustomerController {
 	public ResponseEntity<List<Customer>> getAllCustomersByNameAndLocation(String name,String loc)
 	{
 		return new ResponseEntity<List<Customer>>(custService.getAllCustomersByNameAndLocation(name, loc), HttpStatus.OK);
+	}
+	
+	// http://localhost:9092/v1/api/customer/filterbypartialname?name=RD
+	@GetMapping("/customer/filterbypartialname")
+	public ResponseEntity<List<Customer>> getAllCustomersByPartialCustomerName(@RequestParam String name)
+	{
+		return new ResponseEntity<List<Customer>>(custService.getAllCustomersByPartialCustomerName(name), HttpStatus.OK);
+	}
+	
+	// http://localhost:9092/v1/api/customer/pagination?pageSize=5
+	@GetMapping("/customer/pagination")
+	public ResponseEntity<List<Customer>> getAllCustomersByPagination(@RequestParam int pageNumber, 
+			@RequestParam int pageSize)
+	{
+		return new ResponseEntity<List<Customer>>(custService.getCustomers(pageNumber,pageSize), HttpStatus.OK);
+	}
+	
+	// http://localhost:9092/v1/api/customer/pagination?pageNumber=1&pageSize=5&columnName=id
+	@GetMapping("/customer/pageandsort")
+	public ResponseEntity<List<Customer>> getAllCustomersByPaginationAndSort(@RequestParam int pageNumber, 
+			@RequestParam int pageSize,@RequestParam String columnName)
+	{
+		
+		return new ResponseEntity<List<Customer>>(custService.getCustomers(pageNumber, pageSize, columnName), HttpStatus.OK);
 	}
 }

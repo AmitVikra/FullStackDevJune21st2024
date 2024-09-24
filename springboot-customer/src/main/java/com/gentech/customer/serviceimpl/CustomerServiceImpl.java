@@ -2,8 +2,11 @@ package com.gentech.customer.serviceimpl;
 
 import java.util.List;
 
-import org.hibernate.query.sqm.tree.domain.AbstractSqmSpecificPluralPartPath;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.gentech.customer.entity.Customer;
@@ -68,6 +71,26 @@ public class CustomerServiceImpl implements CustomerService{
 		return custRepository.findByCustomerNameAndLocation(name, loc);
 	}
 
+	@Override
+	public List<Customer> getAllCustomersByPartialCustomerName(String name) {
+		return custRepository.findByCustomerNameContaining(name);
+	}
+
+	@Override
+	public List<Customer> getCustomers(int pageNumber, int pageSize) {
+		
+		Pageable pages = PageRequest.of(pageNumber, pageSize);
+		return custRepository.findAll(pages).getContent();
+	}
+
+	@Override
+	public List<Customer> getCustomers(int pageNumber, int pageSize, String columnName) {
+		Sort sort=Sort.by(Direction.ASC, columnName);
+		Pageable pages = PageRequest.of(pageNumber, pageSize, sort);
+		return custRepository.findAll(pages).getContent();
+	}
+
+	
 	
 	
 }

@@ -90,6 +90,26 @@ public class CustomerServiceImpl implements CustomerService{
 		return custRepository.findAll(pages).getContent();
 	}
 
+	@Override
+	public List<Customer> getAllCustomersByNameOrLocation(String name, String loc) {
+		return custRepository.getAllCustomersByNameAndLocation(name, loc);
+	}
+
+	@Override
+	public Integer deleteBySpecificCustomerName(String name) {
+		return custRepository.getDeleteByCustomerName(name);
+	}
+
+	@Override
+	public Integer updateEmailForSpecificCustomer(String email, String customerName) {
+		return custRepository.updateEmailIdByCustomerName(email,customerName);
+	}
+
+	@Override
+	public Integer updateCustomerNameAndLocationById(String name, String location, Long id) {
+		return custRepository.updateCustomerNameAndLocationById(name, location, id);
+	}
+
 	
 	
 	

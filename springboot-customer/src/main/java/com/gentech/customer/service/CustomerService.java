@@ -28,4 +28,12 @@ public interface CustomerService {
 	List<Customer> getAllCustomersByNameAndLocation(String name, String loc);
 	
 	List<Customer> getAllCustomersByPartialCustomerName(String name);
+	
+	List<Customer> getAllCustomersByNameOrLocation(String name, String loc);
+	
+	Integer deleteBySpecificCustomerName(String name);
+	
+	Integer updateEmailForSpecificCustomer(String email,String customerNameName);
+	
+	Integer updateCustomerNameAndLocationById(String name,String location, Long id);
 }

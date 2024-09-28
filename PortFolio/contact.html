@@ -7,13 +7,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
     <!-- ----- Nav Bar Start Here----- -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
         <div class="container-fluid">
-            <a class="navbar-brand text-danger fw-bold" href="#">PortFolio</a>
+            <a class="navbar-brand text-danger fw-bold" href="index.html">PortFolio</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -46,6 +47,54 @@
         <!-- ---   contact Section start here------ -->
         <div class="row bg-info min-vh-50 p-5 mt-2 mb-2">
             <h2 class="text-center text-white">Contact Me</h2>
+        </div>
+
+        <div class="row justify-content-center mt-5 mb-5">
+            <div class="col-md-5">
+                <div>
+                    <h4><i class="bi bi-envelope-at-fill text-primary"></i> Email</h4>
+                    <p>info@testing.com</p>
+                </div>
+                <div>
+                    <h4><i class="bi bi-telephone-inbound-fill text-success"></i> Phone Number</h4>
+                    <p>080-123456</p>
+                </div>
+
+                <div>
+                    <h4><i class="bi bi-geo-alt-fill text-danger"></i> Address</h4>
+                    <p>#555, 7th Phase <br/>
+                     Attiguppe, 4th Cross <br/>
+                     Viyanagar, Bangalore <br/>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <form class="row g-3">
+                    <div class="col-md-6">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="fullname">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    
+                    <div class="col-12">
+                        <label for="contact" class="form-label">Contact No</label>
+                        <input type="text" class="form-control" id="contact" placeholder="Phone Number">
+                    </div>
+                    <div class="col-12">
+                        <label for="inputAddress2" class="form-label">Message</label>
+                        <input type="text" class="form-control" id="message"
+                            placeholder="Messsage">
+                    </div>
+                    
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Send</button>
+                        <button type="reset" class="btn btn-primary">Reset</button>
+                    </div>
+                </form>
+            </div>
         </div>
         <!-- ---   contact Section end here------ -->
         <!-- ---- Footer Start here ---- -->

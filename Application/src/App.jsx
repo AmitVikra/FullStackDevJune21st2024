@@ -5,6 +5,7 @@ import Services from "./pages/Services"
 import Courses from "./pages/Courses"
 import Contact from "./pages/Contact"
 import About from "./pages/About"
+import ErrorPage from "./pages/ErrorPage"
 function App() {
   return (
     <>
@@ -17,6 +18,7 @@ function App() {
               <Route path="/courses" element={<Courses/>} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/about" element={<About/>} />
+              <Route path="*" element={<ErrorPage />} />
           </Routes>
       </BrowserRouter>
     </>

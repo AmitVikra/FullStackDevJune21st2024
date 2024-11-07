@@ -1,5 +1,4 @@
 package com.gentech.dept.controller;
-
 import java.util.List;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,6 +28,7 @@ public class DepartmentController {
 	public List<Department> getAllDepartments()
 	{
 		return deptService.getDepartments();
+		
 	}
 	
 	@GetMapping("/departments/{id}")
@@ -38,7 +38,7 @@ public class DepartmentController {
 	}
 	
 	@PostMapping("/departments")
-	public Department saveDepartment(@RequestBody Department department)
+	public Department saveDepartment(@RequestBody Department department)throws Exception
 	{
 		return deptService.createDepartment(department);
 	}

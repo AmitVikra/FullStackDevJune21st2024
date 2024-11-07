@@ -10,7 +10,7 @@ public interface DepartmentService {
 	
 	Department getParticularDepartment(Long id) throws Exception;
 	
-	Department createDepartment(Department department);
+	Department createDepartment(Department department) throws Exception;
 	
 	Department updateDepartment(Department department);
 	

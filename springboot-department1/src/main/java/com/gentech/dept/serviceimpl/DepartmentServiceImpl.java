@@ -36,7 +36,11 @@ public class DepartmentServiceImpl implements DepartmentService{
 	}
 
 	@Override
-	public Department createDepartment(Department department) {
+	public Department createDepartment(Department department)throws Exception {
+		if(department.getDeptName().length() >=5)
+		{
+			throw new Exception("Department Name should not exceeds more than 4 characters");
+		}
 		return deptRepository.save(department);
 	}
 

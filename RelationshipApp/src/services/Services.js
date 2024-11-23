@@ -7,6 +7,10 @@ export const createCustomer=(customer)=>{
     axios.post(BASE_URL_CUSTOMER, customer)
 }
 
+
+export const getAllCustomers=()=>{
+    axios.get('http://localhost:9091/api/v1/customers')
+}
 export const createProject=(project)=>{
     axios.post(BASE_URL_PROJECT, project)
 }
